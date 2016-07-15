@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				text-align:center;
+				margin:0;
+				padding:0;
+				overflow:hidden;
+			}
+			.bg{
+				width:600px;
+				height:600px;
+				position: relative;
+				background:-webkit-linear-gradient(linear,left top,left bottom,color-stop(0%,#00D6F9), color-stop(100%,#ffffff));
+				background: linear-gradient(to bottom,#00D6F9 0%,#ffffff 100%);
+				border:solid 1px #ccc;
+				box-shadow:4px 4px 10px #ccc;
+			}
+			.cloud{
+				-webkit-animation:cloudmove  35s linear infinite;
+			}
+			.cloud1{width:160px;height:100px;position:absolute;top:100px;left:20px;}
+			.cloud1_1{width: 80px;height: 80px;background:#fff;border-radius:100%;position:absolute;top:0px;left:50px;}
+			.cloud1_2{width: 60px;height: 60px;background:#fff;border-radius:100%;position:absolute;top: 21px;left: 16px;}
+			.cloud1_3{width: 60px;height: 60px;background:#fff;border-radius:100%;position:absolute;top: 18px;left: 98px;}
+			@-webkit-keyframes cloudmove{
+				0%{-webkit-transform: translate(350px,-180px);opacity:1;}
+				40%{-webkit-transform: translate(-100px,400px);opacity:0;}
+				41%{-webkit-transform: translate(-350px,200px);opacity:0;}
+				42%{-webkit-transform:scale(1.3) rotateX(8deg) rotateZ(3deg) translate(-240px,150px);opacity:0;}
+				43%{-webkit-transform:scale(1.3) rotateX(8deg) rotateZ(3deg) translate(-240px,150px);opacity:1;}
+				90%{-webkit-transform:scale(1.3) rotateX(8deg) rotateZ(3deg) translate(400px,250px);opacity:0;}
+				100%{-webkit-transform:scale(1.3) rotateX(8deg) rotateZ(3deg) translate(400px,250px);opacity:0;}
+			}
+			.outer{
+				width:200px;
+				height:200px;
+				margin:0 auto;
+			    will-change:transform;
+	      	 	transform-style:preserve-3d;
+		       	transform:rotateX(-344deg);
+		        -webkit-animation:bmove 35s linear infinite ;
+	       	}
+	       	@-webkit-keyframes bmove{
+				0%  {-webkit-transform:rotateX(-344deg);}
+				40%{-webkit-transform:rotateY(40deg) rotateX(-384deg);}
+				80%{-webkit-transform:rotateY(-40deg) rotateX(-384deg);}
+				100%{-webkit-transform:rotateY(0deg) rotateX(-344deg);}
+			}
+	       	.inner{
+	       		width:100%;
+	       		height:100%;
+	       		position:absolute;
+	       		top:50%;
+	       		left:50%;
+	       		margin:-50% 0 0 -50%;
+	       		border:solid 1px rgba(102, 102, 102, 0.8);
+       		}
+       		.innerY{
+       			border-radius: 100% 100% 100% 0;
+       		}
+       		.innerX{
+       			border-radius:100%;
+   			}
+	       	.outer svg{
+	       		stroke: #000;
+       		}
+		</style>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="cloud">
+				<div class="cloud1">
+					<div class="cloud1_1"></div>
+					<div class="cloud1_2"></div>
+					<div class="cloud1_3"></div>
+				</div>
+				<div class="cloud1" style="top: 55px;left: 183px;-webkit-transform: scale(0.8);-moz-transform: scale(0.8);transform: scale(0.8);">
+					<div class="cloud1_1"></div>
+					<div class="cloud1_2"></div>
+					<div class="cloud1_3"></div>
+				</div>
+			</div>
+			<div style="padding:80px;"></div>
+			<div class="outer">
+				<!--
+				bug!!
+				<div class="inner innerX" style="transform:scale(0.16) rotateX(90deg) translateZ(99.9px);"></div>
+				-->
+				<div class="inner innerX" style="-webkit-transform:scale(0.81) rotateX(90deg) translateZ(66.6px);-moz-transform:scale(0.81) rotateX(90deg) translateZ(66.6px);transform:scale(0.81) rotateX(90deg) translateZ(66.6px);"></div>
+				<div class="inner innerX" style="-webkit-transform:scale(0.94) rotateX(90deg) translateZ(33.3px);-moz-transform:scale(0.94) rotateX(90deg) translateZ(33.3px);transform:scale(0.94) rotateX(90deg) translateZ(33.3px);"></div>
+				<div class="inner innerX" style="-webkit-transform:rotateX(90deg);-moz-transform:rotateX(90deg);transform:rotateX(90deg);"></div>
+				<div class="inner innerX" style="-webkit-transform:scale(0.94) rotateX(90deg) translateZ(-33.3px);-moz-transform:scale(0.94) rotateX(90deg) translateZ(-33.3px);transform:scale(0.94) rotateX(90deg) translateZ(-33.3px);"></div>
+				<div class="inner innerX" style="-webkit-transform:scale(0.80) rotateX(90deg) translateZ(-66.6px);-moz-transform:scale(0.80) rotateX(90deg) translateZ(-66.6px);transform:scale(0.80) rotateX(90deg) translateZ(-66.6px);"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(0deg) rotateZ(-45deg) ;-moz-transform:rotateY(0deg) rotateZ(-45deg) ;transform:rotateY(0deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(40deg) rotateZ(-45deg) ;-moz-transform:rotateY(40deg) rotateZ(-45deg) ;transform:rotateY(40deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(80deg) rotateZ(-45deg) ;-moz-transform:rotateY(80deg) rotateZ(-45deg) ;transform:rotateY(80deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(120deg) rotateZ(-45deg) ;-moz-transform:rotateY(120deg) rotateZ(-45deg) ;transform:rotateY(120deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(160deg) rotateZ(-45deg) ;-moz-transform:rotateY(160deg) rotateZ(-45deg) ;transform:rotateY(160deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(180deg) rotateZ(-45deg) ;-moz-transform:rotateY(180deg) rotateZ(-45deg) ;transform:rotateY(180deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(220deg) rotateZ(-45deg) ;-moz-transform:rotateY(220deg) rotateZ(-45deg) ;transform:rotateY(220deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(260deg) rotateZ(-45deg) ;-moz-transform:rotateY(260deg) rotateZ(-45deg) ;transform:rotateY(260deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(280deg) rotateZ(-45deg) ;-moz-transform:rotateY(280deg) rotateZ(-45deg) ;transform:rotateY(280deg) rotateZ(-45deg) ;"></div>
+				<div class="inner innerY" style="-webkit-transform:rotateY(320deg) rotateZ(-45deg) ;-moz-transform:rotateY(320deg) rotateZ(-45deg) ;transform:rotateY(320deg) rotateZ(-45deg) ;"></div>
+				
+				
+				<svg id="svg" width="30" height="200" style="margin-top: 242px;">
+				    <path d="M15 0 Q20 25 20 75 T30 180"  fill="none" style="stroke-width: 1px;"></path>
+				</svg>
+			
+			
+			</div>
+		</div>
+	</body>
+</html>
